@@ -1,10 +1,20 @@
-import Vue from 'vue'
-import App from './App.vue'
-import vuetify from './plugins/vuetify'
+import Vue from 'vue';
+import Vuex from 'vuex';
 
-Vue.config.productionTip = false
+import App from './App.vue';
+import vuetify from './plugins/vuetify';
+import store from '@/store';
+
+
+Vue.config.productionTip = false;
+
+Vue.use(Vuex);
+
+const InstanceVuex = new Vuex.Store(store);
 
 new Vue({
+  el: '#app',
+  store: InstanceVuex,
   vuetify,
   render: h => h(App)
-}).$mount('#app')
+});
